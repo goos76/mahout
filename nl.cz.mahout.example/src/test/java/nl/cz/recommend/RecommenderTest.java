@@ -34,24 +34,33 @@ public class RecommenderTest {
 		System.out.println("\nBeetje data manipuleren...");
 		Movie vikings = Dao.INSTANCE.getMovie("vikings");
 		Movie gameOfThrones = Dao.INSTANCE.getMovie("game of thrones");
+		Movie dexter = Dao.INSTANCE.getMovie("dexter");
+		User roosje = Dao.INSTANCE.getUser("Roosje");
+		roosje.addRecommendation(vikings, 5.0);
+		roosje.addRecommendation(gameOfThrones, 5.0);
+		roosje.addRecommendation(dexter, 5.0);
+
 
 		User miepje = Dao.INSTANCE.getUser("Miepje");
 		miepje.addRecommendation(vikings, 5.0);
 		miepje.addRecommendation(gameOfThrones, 5.0);
+		miepje.addRecommendation(dexter, 5.0);
 
 		User keesje = Dao.INSTANCE.getUser("Keesje");
-		keesje.addRecommendation(vikings, 1.0);
+		keesje.addRecommendation(vikings, 5.0);
 		keesje.addRecommendation(gameOfThrones, 5.0);
+		keesje.addRecommendation(dexter, 5.0);
 
 		User jantje = Dao.INSTANCE.getUser("Jantje");
-		jantje.addRecommendation(vikings, 1.0);
-		jantje.addRecommendation(gameOfThrones, 2.0);
+		jantje.addRecommendation(vikings, 5.0);
+		jantje.addRecommendation(gameOfThrones, 5.0);
+		jantje.addRecommendation(dexter, 5.0);
 
 		System.out.println("\nNa data manipulatie...");
-		new Recommender().recommend("Roosje", 2);
-		new Recommender().recommend("Miepje", 2);
-		new Recommender().recommend("Jantje", 2);
-		new Recommender().recommend("Keesje", 2);
+		new Recommender().recommend("Roosje", 3);
+		new Recommender().recommend("Miepje", 3);
+		new Recommender().recommend("Jantje", 3);
+		new Recommender().recommend("Keesje", 3);
 	}
 
 }
